@@ -1,12 +1,12 @@
 .container {
-
+    
 }
  
  div.grid {
     width: 800px;
     height: 800px;
     display: grid;
-     background-color: crimson; 
+     background-color: rgb(245, 231, 234);  
     border: 1px solid rgb(8, 11, 186);
     margin: 0;
     
@@ -15,7 +15,7 @@
     border: 1px solid rgb(8, 11, 186);
     
 
-}s
+}
 
 .input{
 
@@ -40,8 +40,8 @@
     background-color: transparent;
     height: 48px;
     :hover{
-        color: #fff;
-        background-color: #616467;
-    }
+    color: #fff;
+    background-color: #616467;
+    
 
 }

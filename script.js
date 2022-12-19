@@ -6,27 +6,44 @@ const container=document.querySelector('.container');
 
 const grid=document.createElement('div');
 grid.className='grid';
-//grid.setAttribute('style', 'display:grid;');
 document.querySelector('.container').appendChild(grid);
 const btn=document.querySelector('button');
 var input = document.createElement("input");
 input.type = "number";
 input.className = "inputNum";
 document.body.appendChild(input);
-input.addEventListener('input', createSquare);
+
+//input.addEventListener('input', createSquare);
+btn.addEventListener('click', createSquare);
+
+document.getElementById("favcolor").addEventListener('input',()=>{
+   grid.style.background=document.getElementById("favcolor").value;
+
+})
+
 
 let range=0;
 function createSquare(e){
-  range= e.target.valueAsNumber;
+
+    let inp= prompt("please entre the Grtid size max 100!");  
+
+    console.log(typeof inp);
+    //range= e.target.valueAsNumber;
+    range= parseInt(inp);
+    console.log(typeof range);
 
  for (let index = 1; index <= range*range; index++) {
     let sqr=document.createElement('div');
  
     sqr.className='sqr';
+    sqr.id=`${index}`;
+    sqr.addEventListener('click', (e)=>{
+      console.log(e.target);
+      sqr.style.background=document.getElementById('favcolor1').value;})
   
 
     grid.appendChild(sqr);
-    grid.style.gridTemplateColumns =`repeat(${range}, 1fr)`;
+     grid.style.gridTemplateColumns =`repeat(${range}, 1fr)`;
     grid.style.gridTemplateRows =`repeat(${range}, 1fr)`;;
 
 
@@ -34,9 +51,27 @@ function createSquare(e){
 
     
  }
+
  grid.style.display="grid";
- //grid.style.gap="15px";
- //grid.style.gridTemplate = 'repeat(range, 1fr)';
- //grid.style.gridTemplateColumns ="repeat(8 , auto)";
 
 }
+
+ /* Array.from(grid).forEach(s => {
+   
+   s.addEventListener('click',(e)=>{
+    console.log(e.target);
+      s.style.background='black';
+    });
+ }); */
+
+
+
+
+// for (i = 0; i < square.length; i++) 
+//  {
+//    square[i].addEventListener("click", (e)=>{
+//       console.log(e.target);
+//       square.style.background='black';
+     
+//    })
+// }
