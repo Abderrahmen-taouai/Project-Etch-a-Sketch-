@@ -6,11 +6,14 @@
     width: 800px;
     height: 800px;
     display: grid;
-     background-color: rgb(245, 231, 234);  
+    background-color: rgb(249, 227, 200);
     border: 1px solid rgb(8, 11, 186);
     margin: 0;
     
 }  
+div.grid:hover {
+    background-color: rgb(245, 231, 234);  
+}
 .sqr{
     border: 1px solid rgb(8, 11, 186);
     
