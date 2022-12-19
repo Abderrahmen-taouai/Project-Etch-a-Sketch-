@@ -21,10 +21,17 @@ document.getElementById("favcolor").addEventListener('input',()=>{
 
 })
 
+function removeAllChildNodes(parent) {
+   while (parent.firstChild) {
+       parent.removeChild(parent.firstChild);
+   }
+}
+
 
 let range=0;
 function createSquare(e){
-
+    
+     removeAllChildNodes(grid);
     let inp= prompt("please entre the Grtid size max 100!");  
 
     console.log(typeof inp);
@@ -56,22 +63,3 @@ function createSquare(e){
 
 }
 
- /* Array.from(grid).forEach(s => {
-   
-   s.addEventListener('click',(e)=>{
-    console.log(e.target);
-      s.style.background='black';
-    });
- }); */
-
-
-
-
-// for (i = 0; i < square.length; i++) 
-//  {
-//    square[i].addEventListener("click", (e)=>{
-//       console.log(e.target);
-//       square.style.background='black';
-     
-//    })
-// }
