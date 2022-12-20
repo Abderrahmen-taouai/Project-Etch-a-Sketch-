@@ -20,7 +20,7 @@ div.grid:hover {
 
 }
 
-.input{
+.input, .colorinput{
 
     display: inline-block;
     outline: none;
