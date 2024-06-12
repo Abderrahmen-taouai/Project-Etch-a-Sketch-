@@ -1,90 +1,72 @@
-/* 
-
-*/
-
-let startColor='';
-const container=document.querySelector('.container');
-
-const grid=document.createElement('div');
-grid.className='grid';
-document.querySelector('.container').appendChild(grid);
-const btn=document.querySelector('.input');
-var input = document.createElement("input");
-input.type = "number";
-input.className = "inputNum";
-document.body.appendChild(input);
-
-btn.addEventListener('click', createSquare);
+const container = document.querySelector(".container");
+const board = document.getElementById("board");
+const option = document.getElementById("value");
+const Reset = document.querySelector(".Reset");
 
 
+let size = 8;
+createBoard(size);
 
+option.addEventListener("click", (e) => {
+  size = parseInt(option.value);
+  console.log(size);
+  createBoard(size);
+});
 
+function createBoard(size) {
+  board.innerHTML = ""; // Clear any existing content in the board
+  let boardWidth = 480;
+  let boardHeight = 480;
+  board.style.width = `${boardWidth}px`;
+  board.style.height = `${boardHeight}px`;
+  let squareSize = board.offsetWidth / size;
+  console.log(squareSize);
+  board.style.display = "grid";
+  board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+  board.style.gap = "0";
 
+  let index = 1;
+  for (let row = 0; row < size; row++) {
+    for (let col = 0; col < size; col++) {
+      let square = document.createElement("div");
+      square.id = index;
+      index++;
+      square.classList.add("square");
+      square.style.width = `${squareSize}px`;
+      square.style.height = `${squareSize}px`;
+      square.style.backgroundColor = "coral";
+      square.style.border = "solid 1px black";
+      square.addEventListener("mouseover", colorize);
+      board.appendChild(square);
+    }
+  }
+}
+//function to colorize each square, then remove the hover event once done.
+let opacity = 0;
+function colorize() {
+  const color = document.querySelector('input[name="color"]:checked');
+  //based on user selection, change the square color
+  color.value === "Rainbow"
+    ? (this.style.backgroundColor = randomcolor())
+    : (this.style.backgroundColor = `rgb(0, 0, 0,${opacity})`);
+  //every 10 hover reset opacity to 0, increasing opacity by 10%
+  opacity >= 1 ? (opacity = 0) : (opacity += 0.1);
 
-function removeAllChildNodes(parent) {
-   while (parent.firstChild) {
-       parent.removeChild(parent.firstChild);
-   }
+  this.removeEventListener("mouseover", colorize);
 }
 
-function getRandomRgb() {
-   var num = Math.round(0xffffff * Math.random());
-   var r = num >> 16;
-   var g = num >> 8 & 255;
-   var b = num & 255;
-   return 'rgb(' + r + ', ' + g + ', ' + b + ')';
- }
- 
+//generate a random rgb color
+function randomcolor() {
+  let r = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
 
-let range=0;
-function createSquare(e){
-    
-     removeAllChildNodes(grid);
-    let inp= prompt("please entre the Grid size max 100!");  
-
-    console.log( e);
-    range= parseInt(inp);
-    console.log(typeof range);
-
- for (let index = 1; index <= range*range; index++) {
-    let sqr=document.createElement('div');
- 
-    sqr.className='sqr';
-    sqr.id=`${index}`;
-    sqr.addEventListener('mouseover', colorize);
-
-    grid.appendChild(sqr);
-    grid.style.gridTemplateColumns =`repeat(${range}, 1fr)`;
-    grid.style.gridTemplateRows =`repeat(${range}, 1fr)`;;
-
- }
-
- grid.style.display="grid";
-
+  return `rgb(${r},${g},${b}`;
 }
-function colorize (){
-   if (startColor =='black') {
-   this.style.background='black';
-   //Need to converst the opacity since is string
-    const opa =Number(this.style.opacity); 
-   //Add 10% of opacity for the same square once we revist it 
-   this.style.opacity=opa+ 0.1;   
-}
-  else if (startColor =='random')
-   this.style.background="#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();}
-    
-function changeColorSquare(choice){
-   startColor=choice;
-   
- 
 
-}
-const colorinputblack=document.querySelector('.colorInputBlack');
-const colorinputrainBow=document.querySelector('.colorInputRainBow');
+//Rest board
+Reset.addEventListener("click",()=>{
 
-colorinputblack.addEventListener('click',()=>{
-    changeColorSquare('black')});
-
-colorinputrainBow.addEventListener('mouseup',()=>{
-   changeColorSquare('random')});
-  
+        createBoard(8)
+});
