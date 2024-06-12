@@ -68,5 +68,5 @@ function randomcolor() {
 //Rest board
 Reset.addEventListener("click",()=>{
 
-        createBoard(8)
+        createBoard(size)
 });
