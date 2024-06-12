@@ -2,6 +2,19 @@
 
 Welcome to Etch-a-Sketch! This project is part of The Odin Project curriculum, an open-source web development curriculum.
 
+# My Etch-a-Sketch Experience
+
+During my journey with The Odin Project, I had the opportunity to work on the Etch-a-Sketch project. This project allowed me to gain hands-on experience with HTML, CSS, and JavaScript while exploring the concepts of event listeners and dynamic DOM manipulation.
+
+By implementing event listeners, I learned how to capture user interactions, such as mouse movements and clicks, and respond to them in real-time. This enabled me to create an interactive drawing application where users can create artwork on a virtual canvas.
+
+Through this project, I deepened my understanding of JavaScript and its ability to manipulate the DOM dynamically. I also honed my skills in HTML and CSS to structure and style the application, providing an engaging user interface.
+
+Overall, the Etch-a-Sketch project was a valuable learning experience that allowed me to apply my knowledge of HTML, CSS, and JavaScript in a practical way. It enhanced my understanding of event-driven programming and the importance of interactivity in web development.
+
+I am excited to continue my journey with The Odin Project and further expand my skills in web development.
+
+
 ## Demo
 
 You can try out the live demo of Etch-a-Sketch https://abderrahmen-taouai.github.io/Project-Etch-a-Sketch-/index.html
@@ -29,9 +42,6 @@ You can try out the live demo of Etch-a-Sketch https://abderrahmen-taouai.github
 
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
