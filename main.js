@@ -52,8 +52,8 @@ function colorize() {
     : (this.style.backgroundColor = `rgb(0, 0, 0,${opacity})`);
   //every 10 hover reset opacity to 0, increasing opacity by 10%
   opacity >= 1 ? (opacity = 0) : (opacity += 0.1);
-
-  this.removeEventListener("mouseover", colorize);
+//remove event listener once visited 
+  //this.removeEventListener("mouseover", colorize);
 }
 
 //generate a random rgb color
